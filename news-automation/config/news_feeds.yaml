@@ -1,0 +1,97 @@
+# News Feeds Configuration
+# Tier 1: Primary sources (used first)
+# Tier 2: Fallback sources
+
+categories:
+  global_economy:
+    label: "국제정세/경제시장"
+    select_count: 3
+    feeds:
+      tier1:
+        - name: "Reuters Business"
+          url: "https://feeds.reuters.com/reuters/businessNews"
+          lang: en
+        - name: "Bloomberg Markets"
+          url: "https://feeds.bloomberg.com/markets/news.rss"
+          lang: en
+        - name: "FT Markets"
+          url: "https://www.ft.com/markets?format=rss"
+          lang: en
+        - name: "WSJ World"
+          url: "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+          lang: en
+      tier2:
+        - name: "CNBC Economy"
+          url: "https://www.cnbc.com/id/20910258/device/rss/rss.html"
+          lang: en
+        - name: "AP Business"
+          url: "https://rsshub.app/apnews/topics/business-news"
+          lang: en
+        - name: "Investing.com News"
+          url: "https://www.investing.com/rss/news.rss"
+          lang: en
+
+  semiconductor:
+    label: "반도체"
+    select_count: 3
+    feeds:
+      tier1:
+        - name: "EE Times"
+          url: "https://www.eetimes.com/feed/"
+          lang: en
+        - name: "Semiconductor Engineering"
+          url: "https://semiengineering.com/feed/"
+          lang: en
+        - name: "Tom's Hardware Chips"
+          url: "https://www.tomshardware.com/feeds/all"
+          lang: en
+        - name: "AnandTech"
+          url: "https://www.anandtech.com/rss/"
+          lang: en
+      tier2:
+        - name: "MacroTrends Semiconductor"
+          url: "https://techcrunch.com/tag/semiconductors/feed/"
+          lang: en
+        - name: "DigiTimes"
+          url: "https://www.digitimes.com/rss/news.xml"
+          lang: en
+        - name: "The Register Hardware"
+          url: "https://www.theregister.com/hardware/chips/headlines.atom"
+          lang: en
+
+# Keywords for noise/spam filtering
+noise_keywords:
+  - "giveaway"
+  - "airdrop"
+  - "click here"
+  - "limited offer"
+  - "act now"
+  - "don't miss out"
+  - "shocking"
+  - "you won't believe"
+  - "explosive"
+  - "moonshot"
+  - "to the moon"
+  - "pump"
+  - "rug pull"
+  - "get rich"
+  - "guaranteed"
+  - "100x"
+  - "1000x"
+
+# Clickbait / overstatement patterns (regex)
+clickbait_patterns:
+  - "(?i)\\bbreaking(?:\\s+news)?\\b.*!{2,}"
+  - "(?i)\\beveryone is talking about\\b"
+  - "(?i)\\bwhat you need to know\\b.*!{2,}"
+  - "(?i)\\bchina (just|now)\\b.*!+"
+
+# URL normalization: strip these query params before dedup
+url_strip_params:
+  - utm_source
+  - utm_medium
+  - utm_campaign
+  - utm_content
+  - utm_term
+  - ref
+  - source
