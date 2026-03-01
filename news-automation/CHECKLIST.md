@@ -11,10 +11,12 @@
 - [ ] `NOTION_DB_INBOX` 설정됨 (올바른 데이터베이스 ID)
 - [ ] `TELEGRAM_BOT_TOKEN` 설정됨
 - [ ] `TELEGRAM_CHAT_ID` 설정됨
+- [ ] `GEMINI_API_KEY` 설정됨 (Phase 3 LLM 자동화용)
 
 ### 2. Notion 데이터베이스 구조 확인
 - [ ] `Name` 프로퍼티 존재 (title 타입)
 - [ ] `Status` 프로퍼티 존재 (select 타입, **"완료"** 옵션 포함)
+- [ ] `태그` 또는 `Tags` 프로퍼티 존재 (다중 선택/multi-select 타입)
 - [ ] Integration이 해당 데이터베이스에 연결(Share → Invite)됨
 
 ### 3. Telegram 봇 연결 확인

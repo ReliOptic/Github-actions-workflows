@@ -34,6 +34,12 @@ news-automation/
 |-----------|-----|-----------|---------|
 | 일일 뉴스레터 | 12:00 | 03:00 | 매일 (주 7일) |
 | 미국장 브리프 | 22:30 | 13:30 | 평일만 (월~금) |
+| 자동 태그 부착 | 02:00 | 17:00 | 매일 (당일 생성분 태깅) |
+| 뉴스소스 점검 | 07:00 | 22:00 | 매일 |
+| 반도체 KPI | 09:00 | 00:00 | 화~토 (미장 마감 직후) |
+| 프리마켓 정확도 | 13:00 | 04:00 | 화~토 (본장 리뷰 후) |
+| 주간 리캡 | 18:00 | 09:00 | 금요일 (주간 요약) |
+| DB 품질 스캔 | 23:00 | 14:00 | 일요일 |
 
 > KST = UTC + 9시간. GitHub Actions cron은 항상 UTC 기준입니다.
 
@@ -49,6 +55,7 @@ GitHub 리포지토리 → **Settings** → **Secrets and variables** → **Acti
 | `NOTION_DB_INBOX` | Notion 대상 데이터베이스 ID | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
 | `TELEGRAM_BOT_TOKEN` | @BotFather에서 발급한 봇 토큰 | `1234567890:AAH...` |
 | `TELEGRAM_CHAT_ID` | 대상 채널 또는 채팅방 ID | `-100123456789` |
+| `GEMINI_API_KEY` | Google Gemini API 토큰 (Phase 3 기능용) | `AIzaSy...` |
 
 ### Notion 설정 상세
 
