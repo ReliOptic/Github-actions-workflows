@@ -95,3 +95,39 @@ url_strip_params:
   - utm_term
   - ref
   - source
+
+# ==========================================
+# Phase 2: Ops & Quality Control Settings
+# ==========================================
+
+# Quality Gate Settings
+quality_gate:
+  min_title_length: 15
+  min_url_count_per_article: 1
+  required_headers:
+    global: "## 🌏 국제정세 / 경제시장"
+    semi: "## 💾 반도체"
+
+# Healthcheck Database (Alternative Sources)
+# Used to propose replacements when a Tier 1/2 feed fails
+fallback_database:
+  global_economy:
+    - name: "Yahoo Finance Global"
+      url: "https://finance.yahoo.com/news/rss"
+      lang: "en"
+    - name: "MarketWatch Top Stories"
+      url: "http://feeds.marketwatch.com/marketwatch/topstories"
+      lang: "en"
+    - name: "CNET News"
+      url: "https://www.cnet.com/rss/news/"
+      lang: "en"
+  semiconductor:
+    - name: "TechCrunch Hardware"
+      url: "https://techcrunch.com/category/hardware/feed/"
+      lang: "en"
+    - name: "ZDNet Hardware"
+      url: "https://www.zdnet.com/topic/hardware/rss.xml"
+      lang: "en"
+    - name: "Wired Gear"
+      url: "https://www.wired.com/feed/category/gear/latest/rss"
+      lang: "en"

@@ -27,6 +27,7 @@ from scorer import filter_and_score
 from formatter import format_us_premarket_brief
 from publisher_notion import publish_to_notion
 from publisher_telegram import publish_to_telegram, send_fallback_alert
+from quality_gate import apply_quality_gate
 
 logging.basicConfig(
     level=logging.INFO,
@@ -98,6 +99,9 @@ def main() -> int:
                 global_articles=global_articles,
                 semi_articles=semi_articles,
             )
+
+        logger.info("Applying Quality Gate...")
+        content = apply_quality_gate(content, is_newsletter=False)
 
         logger.info("Formatted content preview:\n%s", content[:500])
 
