@@ -1,0 +1,35 @@
+name: Stock Signals (Skeleton)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Mock API requests for testing'
+        required: false
+        type: boolean
+        default: true
+  # schedule:
+  #   - cron: '0 8 * * 1-5' # Example: Run weekdays at 17:00 KST (After KRX close)
+
+jobs:
+  stock-automation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+          
+      - name: Install Dependencies
+        run: |
+          pip install -r stock-automation/requirements.txt
+          
+      - name: Run Stock Scanner
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          python stock-automation/src/market_scanner.py
